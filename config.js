@@ -1,12 +1,12 @@
 /**
  * config.js
- * Source of Truth for AGMHSS Patteeswaram Timetable Engine
+ * Source of Truth for Oriental Timetable Engine
  * Updated: 2026-05-01
  */
 
 const SCHOOL_CONFIG = {
-    schoolName: "AGMHSS Patteeswaram",
-    location: "Thanjavur, Tamil Nadu",
+    schoolName: "Oriental",
+    location: "Kumbakonam, Tamil Nadu",
     
     // 1. Regular School Timings
     regularTimings: [
