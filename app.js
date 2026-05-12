@@ -3,7 +3,7 @@
  * Features: Fallback Day Search, Date Support, Absentee Skippers, Equal Duty Allotment, Horizontal Data
  */
 
-const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxw99LPM2XXyh1CePIkcVSRcO6YtbBCnUXb0Nahep_NQeIiIy0haIsd_8sBRtPUA7GL/exec";
+const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwXHOHkNdCA54hGFzEDsKNgzPxPj-o1Jbsn9J1e45JRIRqy04-LvgBdaniKKDvUEqcB/exec";
 
 // Global Trackers
 let generatedWeeklyTimetable = [];
