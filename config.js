@@ -1,66 +1,55 @@
 /**
- * config.js
- * Source of Truth for Oriental Timetable Engine
- * Updated: 2026-05-01
+ * config.js - Global Configuration for AGMHSS Timetable Engine
  */
 
 const SCHOOL_CONFIG = {
-    schoolName: "Oriental",
-    location: "Kumbakonam, Tamil Nadu",
-    
-    // 1. Regular School Timings
+    // 1. Regular Timetable Settings (பள்ளியின் தினசரி நேர அமைப்பு)
     regularTimings: [
-        { label: "Assembly", start: "09:10", end: "09:30", type: "fixed" },
-        { label: "Period 1", start: "09:30", end: "10:15", type: "class" },
-        { label: "Period 2", start: "10:15", end: "11:00", type: "class" },
-        { label: "Short Break", start: "11:00", end: "11:10", type: "break" },
-        { label: "Period 3", start: "11:10", end: "11:55", type: "class" },
-        { label: "Period 4", start: "11:55", end: "12:40", type: "class" },
-        { label: "Lunch Break", start: "12:40", end: "13:30", type: "break" },
-        { label: "Period 5", start: "13:30", end: "14:15", type: "class" },
-        { label: "Period 6", start: "14:15", end: "15:00", type: "class" },
-        { label: "Short Break", start: "15:00", end: "15:10", type: "break" },
-        { label: "Period 7", start: "15:10", end: "15:45", type: "class" },
-        { label: "Period 8", start: "15:45", end: "16:20", type: "class" }
+        { label: '1', start: '09:30 AM', end: '10:10 AM', type: 'class' },
+        { label: '2', start: '10:10 AM', end: '10:50 AM', type: 'class' },
+        { label: 'Break', start: '10:50 AM', end: '11:00 AM', type: 'break' },
+        { label: '3', start: '11:00 AM', end: '11:40 AM', type: 'class' },
+        { label: '4', start: '11:40 AM', end: '12:20 PM', type: 'class' },
+        { label: 'Lunch', start: '12:20 PM', end: '01:00 PM', type: 'break' },
+        { label: '5', start: '01:00 PM', end: '01:40 PM', type: 'class' },
+        { label: '6', start: '01:40 PM', end: '02:20 PM', type: 'class' },
+        { label: 'Break', start: '02:20 PM', end: '02:30 PM', type: 'break' },
+        { label: '7', start: '02:30 PM', end: '03:10 PM', type: 'class' },
+        { label: '8', start: '03:10 PM', end: '03:50 PM', type: 'class' }
     ],
 
-    // 2. Exam Session Configurations
+    // 2. Exam Duty Settings (தேர்வு நேர அமைப்புகள்)
     examSettings: {
-        FN: { coolOffStart: "09:45", writingStart: "10:00", juniorEnd: "12:30", seniorEnd: "13:00" },
-        AN: { coolOffStart: "13:30", writingStart: "13:45", juniorEnd: "16:15", seniorEnd: "16:45" }
+        'FN': {
+            coolOffStart: '09:45 AM',
+            writingStart: '10:00 AM',
+            juniorEnd: '12:30 PM', // 1 to 10th Standard (2.5 Hours)
+            seniorEnd: '01:00 PM'  // 11 & 12th Standard (3.0 Hours)
+        },
+        'AN': {
+            coolOffStart: '01:15 PM',
+            writingStart: '01:30 PM',
+            juniorEnd: '04:00 PM', // 1 to 10th Standard (2.5 Hours)
+            seniorEnd: '04:30 PM'  // 11 & 12th Standard (3.0 Hours)
+        }
     },
 
-    // 3. Exam Participation Patterns
+    // 3. Exam Patterns (முழுமையாக 1 முதல் 12 வரை சேர்க்கப்பட்டுள்ளது)
     examPatterns: {
-        "Standard": { "FN": [6, 8, 10, 12], "AN": [7, 9, 11] },
-        "Alternate": { "FN": [7, 9, 11], "AN": [6, 8, 10, 12] }
+        'Full School (1 to 12)': {
+            'FN': ['12', '10', '8', '6', '4', '2', 'LKG'],
+            'AN': ['11', '9', '7', '5', '3', '1', 'UKG']
+        },
+        'High & Hr.Sec Only (6 to 12)': {
+            'FN': ['12', '10', '8', '6'],
+            'AN': ['11', '9', '7']
+        },
+        'Primary Only (LKG to 5)': {
+            'FN': ['5', '3', '1', 'LKG'],
+            'AN': ['4', '2', 'UKG']
+        }
     },
 
-    // 4. Room Registry
-    rooms: [
-        { id: "R1", name: "Hi-Tech Lab", capacity: 40, type: "lab" },
-        { id: "R2", name: "Hall 10-A", capacity: 32, type: "classroom" },
-        { id: "R3", name: "Hall 10-B", capacity: 32, type: "classroom" },
-        { id: "R4", name: "Auditorium", capacity: 120, type: "hall" }
-    ],
-
-    // 5. Staff Registry
-    teachers: [
-        { id: "T1", name: "Rajarajan", dept: "IT/Admin" },
-        { id: "T2", name: "Sumathi", dept: "General" },
-        { id: "T3", name: "Leo", dept: "Python/CS" }
-    ],
-
-    // 6. Tamil Nadu State Specific Constraints
-    stateMandates: {
-        fridayAN: "Kalai Thiruvizha / Club Activities",
-        careerGuidanceGrades: [9, 10, 11, 12],
-        emisSyncRequired: true
-    },
-
-    // 7. NEW: Assignments Array (Properly placed inside the object)
-    assignments: [
-        { period: "Period 1", class: "10-A", subject: "Mathematics", teacher: "Rajarajan" },
-        { period: "Period 2", class: "10-A", subject: "Information Tech", teacher: "Leo" }
-    ]
-}; // End of SCHOOL_CONFIG
+    // 4. Assignments (இது காலியாகவே இருக்கட்டும், Google Sheet இதை நிரப்பிவிடும்)
+    assignments: [] 
+};
